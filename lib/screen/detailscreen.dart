@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttermvvmnewsproject/viewmodel/viewmodel.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({ Key key }) : super(key: key);
-
+ 
+  ViewModel article;
+  DetailScreen(@required this.article);
   @override
   Widget build(BuildContext context) {
     return Container(

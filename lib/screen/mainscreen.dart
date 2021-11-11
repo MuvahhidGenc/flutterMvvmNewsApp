@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttermvvmnewsproject/constant/constant.dart';
 import 'package:fluttermvvmnewsproject/viewmodel/listviewmodel.dart';
+import 'package:fluttermvvmnewsproject/widgets/grids.dart';
 import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
@@ -23,6 +24,7 @@ class _MainScreenState extends State<MainScreen> {
     var listviewmodel = Provider.of<ListViewModel>(context);
     return Scaffold(
       appBar: AppBar(
+        title: Center(child: Text("Haberler")),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (country) {
@@ -41,6 +43,28 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+      body: SafeArea(
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Center(
+              child: Text(
+                "Başlık",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(color: Theme.of(context).colorScheme.primary),
+              ),
+            ),
+          ),
+          Expanded(
+            //child: Text("Test"),
+            child: Grids(articles: listviewmodel.article),
+          )
+        ],
+      )),
     );
   }
 }
