@@ -1,10 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-
 class CircleImage extends StatelessWidget {
-
-  String iUrl;
+   final String iUrl;
   CircleImage({this.iUrl});
 
   @override

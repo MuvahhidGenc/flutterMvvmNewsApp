@@ -1,9 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
+//import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttermvvmnewsproject/screen/detailscreen.dart';
 import 'package:fluttermvvmnewsproject/viewmodel/viewmodel.dart';
 import 'package:fluttermvvmnewsproject/widgets/circleImage.dart';
-//import 'package:fluttermvvmnewsproject/widgets/circleImage.dart';
 //import 'package:fluttermvvmnewsproject/widgets/circleImage.dart';
 
 // ignore: must_be_immutable
@@ -23,10 +22,11 @@ class Grids extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return articles.length>0 ? GridView.builder(
+    return articles!=null ? GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount:2,
       ),
+      itemCount: articles.length,
       itemBuilder: (_,index){
         var article=articles[index];
         return GestureDetector(
@@ -36,8 +36,8 @@ class Grids extends StatelessWidget {
           child: GridTile(
             child: Container(
               //child: Text("Test İmage"),
-             //child:CircleImage(iUrl: article.urlToImage),
-             child:CircleImage(iUrl: article.urlToImage.toString(),) 
+             child:CircleImage(iUrl: article.urlToImage),
+              
             ),
           ),
         );

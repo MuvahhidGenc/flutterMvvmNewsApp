@@ -61,7 +61,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           Expanded(
             //child: Text("Test"),
-            child: Grids(articles: listviewmodel.article),
+            child: listviewmodel.article!=null? Grids(articles: listviewmodel.article):CircularProgressIndicator(),
           )
         ],
       )),
