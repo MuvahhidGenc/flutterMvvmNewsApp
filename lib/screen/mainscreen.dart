@@ -29,12 +29,13 @@ class _MainScreenState extends State<MainScreen> {
           PopupMenuButton(
             onSelected: (country) {
               listviewmodel.fetchNewsByCountry(Constant.Countries[country]);
+              print(country);
             },
             icon: Icon(Icons.more_vert),
             itemBuilder: (_) {
               return Constant.Countries.keys
                   .map(
-                    (e) => PopupMenuItem(
+                    (e) => PopupMenuItem(value: e,
                       child: Text(e),
                     ),
                   )
@@ -67,4 +68,5 @@ class _MainScreenState extends State<MainScreen> {
       )),
     );
   }
+ 
 }

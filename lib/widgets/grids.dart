@@ -1,4 +1,5 @@
 //import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttermvvmnewsproject/screen/detailscreen.dart';
 import 'package:fluttermvvmnewsproject/viewmodel/viewmodel.dart';
@@ -36,12 +37,31 @@ class Grids extends StatelessWidget {
           child: GridTile(
             child: Container(
               //child: Text("Test İmage"),
-             child:CircleImage(iUrl: article.urlToImage),
+              child:CircleImage(iUrl: article.urlToImage),
+             ),
               
             ),
-          ),
         );
       },
     ):Center(child: CircularProgressIndicator());
+
+    
   }
+
+  Future<bool> httpImageStatusControl(String url)async{
+    var res;
+    if(url!=null)
+    res=await Dio().get(url);
+    else
+    return false;
+
+    if(res.statusCode==200 ){
+      
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+
 }
